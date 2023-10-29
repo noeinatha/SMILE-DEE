@@ -7,17 +7,17 @@ module.exports = {
   theme: {
     colors: {
       'red': '#ED7B7B',
-      'dark blue': '#313866',
-      'dark purple': '#504099',
+      'darkblue': '#313866',
+      'darkpurple': '#504099',
       'gray': '#838383',
       'white': '#FFFFFF',
-      'fade purple': '#836096',
+      'fadepurple': '#836096',
       'orage': '#F0B86E',
       'yellow': '#EBE76C',
       'BG': '#F7D9D9',
       'vivid purple': '#974EC3',
       'black': '#000000',
-      'fade gray': '#F3F3F3',
+      'fadegray': '#F3F3F3',
     }
   },
   plugins: [],
