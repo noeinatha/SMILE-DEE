@@ -13,7 +13,7 @@ export default function MiniDentistCard() {
                 </div>   
                 <div className="w-8/12 h-[102px] flex flex-col justify-center">
                     <div className='text-base text-darkblue font-bold pl-2.5 text-center py-1.5 px-2.5'>นายแพทย์พอใจ ฟันสวย</div>
-                    <div className='text-xs text-darkpurple pl-2.5 text-center py-1.5 px-2.5'>SW DEV Hospital</div>
+                    <div className='text-xs text-darkpurple pl-2.5 text-center py-1.5 px-2.5'>Expertist: make kids cry</div>
                 </div>
             </div>
             <div className="w-full h-[25px] px-2.5 py-1.5 text-darkblue text-xs">Hospital: SW dev Hospity</div>
