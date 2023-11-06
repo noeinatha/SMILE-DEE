@@ -1,58 +1,85 @@
 "use client";
-import Image from "next/image";
-import { Icon } from "@iconify/react";
-export default function BookingInfoCard() {
-  return (
-    <div className="w-8/12 h-[320px] bg-white rounded-2xl shadow-lg p-6 space-x-2.5 space-y-2.5">
-      <div className="font-sans font-medium text-lg text-darkblue">
-        Appointment Scheduled for คุณฟันผุ ว้าวุ่นใหญ่เลยทีนี้
-      </div>
-      <div className="px-10 flex flex-col">
-        <div className="space-x-4 flex flex-row">
-          <div className="w-[84px] h-[84px] rounded-full relative ">
-            <Image
-              src={"/img/defaultProfile.jpg"}
-              alt="Dentist Picture"
-              fill={true}
-              className="object-cover rounded-full"
-            />
-          </div>
-          <div className="flex flex-col justify-center">
-            <div className="text-md text-darkblue">นายแพทย์ พอใจ ฟันสวย</div>
-            <div className="text-sm text-darkpurple flex flex-row items-center">
-              <Icon
-                icon="mdi:address-marker-outline"
-                className="w-[20px] h-[20px] m-1 text-red"
-              />
-              SW dev Hospity
-            </div>
-          </div>
-        </div>
+import { TextField } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { DatePicker, TimePicker } from "@mui/x-date-pickers";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import React from "react";
+const useStyles = makeStyles({
+  root: {
+    width: 220,
+    // input label when focused
+    "& label.Mui-focused": {
+      color: "#504099",
+    },
+    // focused color for input with variant='outlined'
+    "& .MuiOutlinedInput-root": {
+      "&.Mui-focused fieldset": {
+        borderColor: "#504099",
+      },
+    },
+    "&:hover .MuiInputLabel-root": {
+      color: "#504099",
+    },
+    "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#504099",
+    },
+    ".MuiOutlinedInput-root .Mui-focused fieldset": {
+      borderColor: "#504099",
+    },
+  },
+});
 
-        <div className="flex flex-row items-center">
-          <div className="w-3/4 bg-fadegray rounded-xl flex flex-row justify-center items-center p-5 mt-5 mb-5 mr-5 space-x-2.5 space-y-2.5">
-            <Icon
-              icon="uil:calender"
-              className="w-[60px] h-[60px] mr-1 text-darkpurple"
-            />
-            <div className="flex flex-col justify-center">
-              <div className="font-medium text-md text-darkpurple">
-                Date & Time
-              </div>
-              <div className="text-md text-black">
-                Tuesday, December 12,2023 - 03.30 pm.
-              </div>
-            </div>
-          </div>
-          <Icon
-            icon="mdi:bin-circle"
-            className="w-[48px] h-[48px] m-1 text-red"
+export default function BookingInfoCard() {
+  const classes = useStyles();
+
+  return (
+    <div className="w-[760px] h-[448px] bg-white rounded-2xl shadow-lg px-12 py-5 gap-6 flex flex-col">
+      <div className="flex flex-col ">
+        <div className="font-sans font-medium text-md text-darkpurple pb-3">
+          Your name:
+        </div>
+        <div className="flex flex-row gap-20">
+          <TextField
+            label="Firstname"
+            variant="outlined"
+            className={classes.root}
           />
-          <Icon
-            icon="mdi:edit-circle"
-            className="w-[48px] h-[48px] m-1 text-fadepurple"
+          <TextField
+            label="Lastname"
+            variant="outlined"
+            className={classes.root}
           />
         </div>
+      </div>
+      <div className="grid gap-3">
+        <div className="font-sans font-medium text-md text-darkpurple">
+          Date:
+        </div>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker
+            className={classes.root}
+            label="MM/DD/YYYY"
+            // value={bookDate}
+            // onChange={(value) => {
+            //   setBookDate(value);
+            //   onDateChange(value);
+            // }}
+          />
+        </LocalizationProvider>
+      </div>
+      <div className="grid gap-3">
+        <div className="font-sans font-medium text-md text-darkpurple">
+          Time:
+        </div>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <TimePicker
+            className={classes.root}
+            label="Time"
+            // value={value}
+            // onChange={(newValue) => setValue(newValue)}
+          />
+        </LocalizationProvider>
       </div>
     </div>
   );
