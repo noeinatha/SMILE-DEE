@@ -18,6 +18,7 @@ module.exports = {
       vividpurple: "#974EC3",
       black: "#000000",
       fadegray: "#F3F3F3",
+      fadebg: "#F5EAEA",
     },
   },
   plugins: [],
