@@ -1,38 +1,11 @@
 "use client";
 import { TextField } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import React from "react";
-const useStyles = makeStyles({
-  root: {
-    width: 220,
-    // input label when focused
-    "& label.Mui-focused": {
-      color: "#504099",
-    },
-    // focused color for input with variant='outlined'
-    "& .MuiOutlinedInput-root": {
-      "&.Mui-focused fieldset": {
-        borderColor: "#504099",
-      },
-    },
-    "&:hover .MuiInputLabel-root": {
-      color: "#504099",
-    },
-    "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "#504099",
-    },
-    ".MuiOutlinedInput-root .Mui-focused fieldset": {
-      borderColor: "#504099",
-    },
-  },
-});
 
 export default function BookingInfoCard() {
-  const classes = useStyles();
-
   return (
     <div className="w-[760px] h-[448px] bg-white rounded-2xl shadow-lg px-12 py-5 gap-6 flex flex-col">
       <div className="flex flex-col ">
@@ -43,12 +16,12 @@ export default function BookingInfoCard() {
           <TextField
             label="Firstname"
             variant="outlined"
-            className={classes.root}
+            className="w-[200px]"
           />
           <TextField
             label="Lastname"
             variant="outlined"
-            className={classes.root}
+            className="w-[200px]"
           />
         </div>
       </div>
@@ -58,7 +31,7 @@ export default function BookingInfoCard() {
         </div>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
-            className={classes.root}
+            className="w-[200px]"
             label="MM/DD/YYYY"
             // value={bookDate}
             // onChange={(value) => {
@@ -74,7 +47,7 @@ export default function BookingInfoCard() {
         </div>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <TimePicker
-            className={classes.root}
+            className="w-[200px]"
             label="Time"
             // value={value}
             // onChange={(newValue) => setValue(newValue)}

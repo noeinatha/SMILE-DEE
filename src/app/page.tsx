@@ -12,8 +12,8 @@ export default function Home() {
       <AppointmentCard />
       {/* <MiniDentistCard/> */}
       {/* <DentistCard/> */}
-      {/* <EditDentistCard />
-      <BookingInfoCard /> */}
+      {/* <EditDentistCard /> */}
+      <BookingInfoCard />
       {/* <LoginForm/> */}
     </main>
   );
