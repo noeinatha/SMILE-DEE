@@ -5,6 +5,7 @@ import EditDentistCard from "@/components/EditDentistCard";
 import Image from "next/image";
 import BookingInfoCard from "@/components/BookingInfoCard";
 import { LoginForm } from "@/components/LoginForm";
+import SelectDentistCard from "@/components/SelectDentistCard";
 
 export default function Home() {
   return (
@@ -12,9 +13,10 @@ export default function Home() {
       {/* <AppointmentCard /> */}
       {/* <MiniDentistCard/> */}
       {/* <DentistCard/> */}
-      {/* <EditDentistCard /> */}
+      <EditDentistCard />
       <BookingInfoCard />
       {/* <LoginForm/> */}
+      <SelectDentistCard/>
     </main>
   );
 }

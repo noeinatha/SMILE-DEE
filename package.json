@@ -11,18 +11,9 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-<<<<<<< Updated upstream
-    "@mui/icons-material": "^5.14.16",
-    "@mui/material": "^5.14.17",
-    "@mui/system": "^5.14.17",
-||||||| Stash base
-    "@mui/material": "^5.14.7",
-    "@mui/styles": "^5.14.17",
-=======
     "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.14.7",
     "@mui/system": "^5.14.17",
->>>>>>> Stashed changes
     "@mui/x-date-pickers": "^6.12.1",
     "bcryptjs": "^2.4.3",
     "dayjs": "^1.11.10",

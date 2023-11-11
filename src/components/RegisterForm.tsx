@@ -11,36 +11,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
-const rootStyles = {
-  backgroundColor: '#ffd60a',
-  border: '3px solid #001d3d',
-};
-
-const inputLabelStyles = {
-  color: '#003566',
-  textTransform: 'capitalize',
-};
-
-const rootInputStyles = {
-  '&:hover fieldset': {
-    border: '2px solid blue!important',
-    borderRadius: 0,
-  },
-  '&:focus-within fieldset, &:focus-visible fieldset': {
-    border: '4px solid red!important',
-  },
-};
-
-const inputStyles = {
-  color: 'red',
-  paddingLeft: '15px',
-  fontSize: '20px',
-};
-
-const helperTextStyles = {
-  color: 'red',
-};
 export default function RegisterForm(){  
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
