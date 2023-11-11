@@ -5,6 +5,7 @@ import userLogin from "@/libs/userLogin";
 export const authOptions: AuthOptions = {
   pages: {
     signIn: "/login",
+    newUser: "/register",
   },
   providers: [
     //Authentication Provider, use Credentials Provider

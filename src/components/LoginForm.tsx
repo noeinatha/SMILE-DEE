@@ -7,33 +7,16 @@ import { signIn } from "next-auth/react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 import Alert from '@mui/material/Alert';
-// const useStyles = makeStyles({
-//   root: {
-//     width: 220,
-//     // input label when focused
-//     "& label.Mui-focused": {
-//       color: "#504099",
-//     },
-//     // focused color for input with variant='outlined'
-//     "& .MuiOutlinedInput-root": {
-//       "&.Mui-focused fieldset": {
-//         borderColor: "#504099",
-//       },
-//     },
-//     "&:hover .MuiInputLabel-root": {
-//       color: "#504099",
-//     },
-//     "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-//       borderColor: "#504099",
-//     },
-//     ".MuiOutlinedInput-root .Mui-focused fieldset": {
-//       borderColor: "#504099",
-//     },
-//   },
-// });
-
-
+import IconButton from '@mui/material/IconButton';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 export const LoginForm = () => {
+  const [showPassword, setShowPassword] = React.useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
   const router = useRouter();
   const [formValues, setFormValues] = useState({
     email: "",
@@ -80,7 +63,7 @@ export const LoginForm = () => {
           <div className="w-full text-3xl text-white text-center">Don’t have an account?</div>
           <div className="w-full text-2xl text-white text-center">Then join us here!</div>
         </div>
-        <button className="px-4  py-1.5 border-2 border-white text-white text-sm rounded-xl">SIGN UP</button>    
+        <button className="px-4  py-1.5 border-2 border-white text-white text-sm rounded-xl" onClick={ (e) =>{ e.stopPropagation(); router.push('/register')}}>SIGN UP</button>    
       </div>
       <div className="w-2/3 h-full flex flex-col justify-center ">
         {error && (
@@ -94,16 +77,51 @@ export const LoginForm = () => {
             <div className="w-full text-4xl font-semibold text-center">SMILE-DEE</div>
   
           </div>
-          <div className='flex flex-col gap-5'>
-            <div className='flex flex-row gap-5 justify-center items-center'>
+          <div className='w-full flex flex-col gap-5 justify-center items-center'>
+            <div className='w-1/2 flex flex-row gap-5 justify-center items-center'>
               <Icon icon="ic:outline-email" color="#ed7b7b" width="35" height="30"/>
               <TextField id="email" label="Email" name="email" variant="outlined" required value={formValues.email}
-              onChange={handleChange}/>
+              onChange={handleChange} fullWidth
+              sx={{
+                "& .MuiInputLabel-root.Mui-focused": {color: '#504099'},
+                "& .MuiOutlinedInput-root.Mui-focused": {
+                "& > fieldset": {
+                borderColor: "#974EC3"},
+                },
+              }}/>
             </div>
-            <div className='flex flex-row gap-5 justify-center items-center'>
+            <div className='w-1/2 flex flex-row gap-5 justify-center items-center'>
               <Icon icon="mdi:password-outline" color="#ed7b7b" width="35" height="30"/>
-              <TextField id="email" label="Password" name="password" variant="outlined"  required value={formValues.password}
-              onChange={handleChange}/>
+              <FormControl variant="outlined" fullWidth     
+                          sx={{
+                            "& .MuiInputLabel-root.Mui-focused": {color: '#504099'},
+                            "& .MuiOutlinedInput-root.Mui-focused": {
+                            "& > fieldset": {
+                            borderColor: "#974EC3"},
+                            },
+                          }}>
+                    <InputLabel htmlFor="password">Password</InputLabel>
+                        <OutlinedInput
+                          id="password"
+                          name="password"
+                          value={formValues.password}
+                          onChange={handleChange}
+                          required
+                          type={showPassword ? 'text' : 'password'}
+                          endAdornment={
+                            <InputAdornment position="end">
+                              <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={handleClickShowPassword}
+                                edge="end"
+                              >
+                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                              </IconButton>
+                            </InputAdornment>
+                          }
+                          label="Password"
+                        />
+                  </FormControl>
             </div>
           </div>
           <button className="px-4 py-1.5 bg-darkpurple text-white text-sm rounded-xl">SIGN IN</button>
