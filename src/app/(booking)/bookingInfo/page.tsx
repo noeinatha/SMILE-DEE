@@ -6,7 +6,7 @@ import StepBar from "@/components/StepBar";
 export default function BookingInfo() {
   return (
     <>
-      <div className="flex flex-col gap-2.5 items-center bg-pageBG h-screen">
+      <div className="flex flex-col gap-2.5 items-center h-full">
         <StepBar step={1} />
         <div className="w-full flex flex-row justify-evenly p-5">
           <div className="flex flex-col gap-10">

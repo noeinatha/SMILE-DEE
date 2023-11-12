@@ -8,7 +8,7 @@ export default async function NavigationBar() {
 
   return (
     <div className="h-[100px] w-full bg-white fixed top-0 right-0 left-0 z-30 drop-shadow-md flex flex-row items-center">
-      <NavigationItem title="HOME" pageRef="" />
+      <NavigationItem title="HOME" pageRef="/" />
       <NavigationItem title="DENTISTS" pageRef="/dentists" />
       <NavigationItem title="APPOINTMENT" pageRef="/appointment" />
       <div className="w-full flex flex-row-reverse">
