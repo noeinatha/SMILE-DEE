@@ -85,7 +85,7 @@ function ColorlibStepIcon(props: StepIconProps) {
 
 export default function StepBar({ step }: { step: number }) {
   return (
-    <div className="flex flex-col justify-center gap-2.5 p-5">
+    <div className="flex flex-col justify-center gap-2.5 p-5 w-full">
       <div className="font-sans font-medium text-center text-xl text-darkblue pb-3">
         MAKE AN APPOINTMENT
       </div>

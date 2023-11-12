@@ -17,11 +17,27 @@ export default function BookingInfoCard() {
             label="Firstname"
             variant="outlined"
             className="w-[200px]"
+            sx={{
+              "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
+              "& .MuiOutlinedInput-root.Mui-focused": {
+                "& > fieldset": {
+                  borderColor: "#974EC3",
+                },
+              },
+            }}
           />
           <TextField
             label="Lastname"
             variant="outlined"
             className="w-[200px]"
+            sx={{
+              "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
+              "& .MuiOutlinedInput-root.Mui-focused": {
+                "& > fieldset": {
+                  borderColor: "#974EC3",
+                },
+              },
+            }}
           />
         </div>
       </div>
@@ -33,6 +49,14 @@ export default function BookingInfoCard() {
           <DatePicker
             className="w-[200px]"
             label="MM/DD/YYYY"
+            sx={{
+              "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
+              "& .MuiOutlinedInput-root.Mui-focused": {
+                "& > fieldset": {
+                  borderColor: "#974EC3",
+                },
+              },
+            }}
             // value={bookDate}
             // onChange={(value) => {
             //   setBookDate(value);
@@ -49,6 +73,14 @@ export default function BookingInfoCard() {
           <TimePicker
             className="w-[200px]"
             label="Time"
+            sx={{
+              "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
+              "& .MuiOutlinedInput-root.Mui-focused": {
+                "& > fieldset": {
+                  borderColor: "#974EC3",
+                },
+              },
+            }}
             // value={value}
             // onChange={(newValue) => setValue(newValue)}
           />
