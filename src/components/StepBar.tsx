@@ -35,7 +35,7 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     height: 3,
     border: 0,
     backgroundColor:
-      theme.palette.mode === "dark" ? theme.palette.grey[800] : "#eaeaf0",
+      theme.palette.mode === "dark" ? theme.palette.grey[800] : "#838383",
     borderRadius: 1,
   },
 }));
@@ -44,7 +44,7 @@ const ColorlibStepIconRoot = styled("div")<{
   ownerState: { completed?: boolean; active?: boolean };
 }>(({ theme, ownerState }) => ({
   backgroundColor:
-    theme.palette.mode === "dark" ? theme.palette.grey[700] : "#ccc",
+    theme.palette.mode === "dark" ? theme.palette.grey[700] : "#838383",
   zIndex: 1,
   color: "#fff",
   width: 50,
@@ -86,7 +86,7 @@ function ColorlibStepIcon(props: StepIconProps) {
 export default function StepBar({ step }: { step: number }) {
   return (
     <div className="flex flex-col justify-center gap-2.5 p-5 w-full">
-      <div className="font-sans font-medium text-center text-xl text-darkblue pb-3">
+      <div className="font-sans font-bold text-4xl text-center text-darkblue pb-3">
         MAKE AN APPOINTMENT
       </div>
       <Box sx={{ width: "100%" }}>
@@ -98,7 +98,7 @@ export default function StepBar({ step }: { step: number }) {
           {steps.map((label) => (
             <Step key={label}>
               <StepLabel StepIconComponent={ColorlibStepIcon}>
-                <div className="font-sans font-medium text-lg text-darkblue">
+                <div className="font-sans font-medium text-xl text-darkblue">
                   {label}
                 </div>
               </StepLabel>

@@ -15,6 +15,7 @@ module.exports = {
       orage: "#F0B86E",
       yellow: "#EBE76C",
       BG: "#F7D9D9",
+      pageBG: "#F5EAEA",
       vividpurple: "#974EC3",
       black: "#000000",
       fadegray: "#F3F3F3",

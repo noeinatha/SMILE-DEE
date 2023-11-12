@@ -8,7 +8,7 @@ import React from "react";
 export default function BookingInfoCard() {
   return (
     <div className="w-[760px] h-[448px] bg-white rounded-2xl shadow-lg px-12 py-5 gap-6 flex flex-col">
-      <div className="flex flex-col ">
+      <div className="flex flex-col">
         <div className="font-sans font-medium text-md text-darkpurple pb-3">
           Your name:
         </div>
@@ -50,6 +50,7 @@ export default function BookingInfoCard() {
             className="w-[200px]"
             label="MM/DD/YYYY"
             sx={{
+              svg: { color: "#ED7B7B" },
               "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
               "& .MuiOutlinedInput-root.Mui-focused": {
                 "& > fieldset": {
@@ -74,7 +75,10 @@ export default function BookingInfoCard() {
             className="w-[200px]"
             label="Time"
             sx={{
-              "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
+              svg: { color: "#ED7B7B" },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "#504099",
+              },
               "& .MuiOutlinedInput-root.Mui-focused": {
                 "& > fieldset": {
                   borderColor: "#974EC3",
