@@ -18,17 +18,9 @@ export default function DentistCard({dentistName, dentistExpertist, hospitalName
                     <div className='text-sm text-gray pl-2.5 text-center py-1.5 px-2.5'>Expertist: {dentistExpertist}</div>
                 </div>
                 <div className="w-full h-3/5 flex flex-col justify-center px-2.5">
-                    <div className="w-full h-1/3 px-2.5 py-1.5 text-darkblu  text-sm">Hospital:{hospitalName}</div>
+                    <div className="w-full h-1/3 px-2.5 py-1.5 text-darkblu  text-sm">Hospital: {hospitalName}</div>
                     <div className="w-full h-1/3 px-2.5 py-1.5 text-darkblue text-sm">Address: {hospitalAddress}</div>
                     <div className="w-full h-1/3 px-2.5 py-1.5 text-darkblue text-sm">Tel: {dentistTel}</div>
-                </div>
-            </div>
-            <div className='w-full h-[45px] flex flex-row gap-1.5 justify-end'>
-                <div className='w-[45px] h-full rounded-full relative bg-red flex justify-center items-center'>
-                    <Icon icon="mdi:bin-outline" color="white" className= "w-3/5 h-3/5"/>
-                </div>
-                <div className='w-[45px] h-full rounded-full relative bg-fadepurple flex justify-center items-center'>
-                    <Icon icon="tabler:edit" color="white" className= "w-3/5 h-3/5"/>
                 </div>
             </div>
         </div>
