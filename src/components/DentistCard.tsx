@@ -1,11 +1,16 @@
 "use client"
 import Image from "next/image";
 import { Icon } from '@iconify/react';
+import { Fragment, useState } from "react";
+import EditDentistCard from "./EditDentistCard";
 export default function DentistCard({dentistName, dentistExpertist, hospitalName, hospitalAddress, dentistTel, imgSrc}:{dentistName:string, dentistExpertist:string, hospitalName:string, hospitalAddress:string, dentistTel:string, imgSrc:string}){
+    const [showModal, setShowModal] = useState(false);
     return (
-        <div  className="w-[300px] h-[380px] bg-white rounded-2xl shadow-lg p-2.5">
+        <div>
+            <Fragment>
+            <div  className="w-[300px] h-[380px] bg-white rounded-2xl shadow-lg p-2.5">
             <div className="w-full h-[120px] flex justify-center items-center mb-2.5">
-                <div className='w-[117px] h-[117px] rounded-full relative '>
+                <div className='w-[117px] h-[117px] rounded-full relative z-10'>
                         <Image src = {imgSrc}
                         alt = "Dentist Picture"
                         fill = {true}
@@ -24,13 +29,17 @@ export default function DentistCard({dentistName, dentistExpertist, hospitalName
                 </div>
             </div>
             <div className='w-full h-[45px] flex flex-row gap-1.5 justify-end'>
-                <div className='w-[45px] h-full rounded-full relative bg-red flex justify-center items-center'>
+                <button className='w-[45px] h-full rounded-full relative bg-red flex justify-center items-center'>
                     <Icon icon="mdi:bin-outline" color="white" className= "w-3/5 h-3/5"/>
-                </div>
-                <div className='w-[45px] h-full rounded-full relative bg-fadepurple flex justify-center items-center'>
-                    <Icon icon="tabler:edit" color="white" className= "w-3/5 h-3/5"/>
-                </div>
+                </button>
+                <button className='w-[45px] h-full rounded-full relative bg-fadepurple flex justify-center items-center' onClick={() => setShowModal(true)}>
+                    <Icon icon="tabler:edit" color="white" className= "w-3/5 h-3/5" />
+                </button>
             </div>
         </div>
+            <EditDentistCard isVisible = {showModal} onClose={() => {setShowModal(false)}}/>
+            </Fragment>
+        </div>
+        
     );
 }
