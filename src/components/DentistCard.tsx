@@ -32,7 +32,7 @@ export default function DentistCard({dentistName, dentistExpertist, hospitalName
                 <button className='w-[45px] h-full rounded-full relative bg-red flex justify-center items-center'>
                     <Icon icon="mdi:bin-outline" color="white" className= "w-3/5 h-3/5"/>
                 </button>
-                <button className='w-[45px] h-full rounded-full relative bg-fadepurple flex justify-center items-center' onClick={() => setShowModal(true)}>
+                <button className='w-[45px] h-full rounded-full relative bg-fadepurple flex justify-center items-center' onClick={(e) => {setShowModal(true)  ; e.stopPropagation()}}>
                     <Icon icon="tabler:edit" color="white" className= "w-3/5 h-3/5" />
                 </button>
             </div>
