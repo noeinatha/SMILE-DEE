@@ -9,7 +9,7 @@ export default function EditDentistCard({isVisible,onClose,dentistName, dentistE
             <div className= "w-[700px] h-[448px] bg-white rounded-2xl shadow-lg p-10 flex flex-row gap-10" onClick={ (e) =>{ e.stopPropagation()}}>
             <div className="w-[120px] h-[120px] flex justify-center items-center mb-2.5 relative">
                 <div className='w-[117px] h-[117px] rounded-full relative '>
-                        <Image src = {'/img/defaultProfile.jpg'}
+                        <Image src = {imgSrc}
                         alt = "Dentist Picture"
                         fill = {true}
                         className = "object-cover rounded-full"/> 
