@@ -72,6 +72,7 @@ export default function EditDentistCard({isVisible,onClose,dentistName, dentistE
                         <TextField
                             label= "Hospital"
                             variant="outlined"
+                            defaultValue={hospitalName}
                             sx={{
                             "& .MuiInputLabel-root": { color: "#504099" },    
                             "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
@@ -92,6 +93,7 @@ export default function EditDentistCard({isVisible,onClose,dentistName, dentistE
                         <TextField
                             label= "Address"
                             variant="outlined"
+                            defaultValue={hospitalAddress}
                             sx={{
                             "& .MuiInputLabel-root": { color: "#504099" },    
                             "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
@@ -114,6 +116,7 @@ export default function EditDentistCard({isVisible,onClose,dentistName, dentistE
                         <TextField
                             label= "Tel"
                             variant="outlined"
+                            defaultValue={dentistTel}
                             sx={{
                             "& .MuiInputLabel-root": { color: "#504099" },    
                             "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
