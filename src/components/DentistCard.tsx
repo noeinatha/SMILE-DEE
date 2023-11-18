@@ -37,7 +37,13 @@ export default function DentistCard({dentistName, dentistExpertist, hospitalName
                 </button>
             </div>
         </div>
-            <EditDentistCard isVisible = {showModal} onClose={() => {setShowModal(false)}}/>
+            <EditDentistCard isVisible = {showModal} onClose={() => {setShowModal(false)}} 
+                dentistName={dentistName}
+                dentistExpertist={dentistExpertist}
+                hospitalName={hospitalName}
+                hospitalAddress={hospitalAddress}
+                dentistTel={dentistTel}
+                imgSrc={imgSrc}/>
             </Fragment>
         </div>
         

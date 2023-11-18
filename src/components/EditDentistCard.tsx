@@ -2,9 +2,8 @@
 import { TextField } from "@mui/material";
 import { Icon } from '@iconify/react';
 import Image from "next/image";
-export default function EditDentistCard({isVisible,onClose}:{isVisible:boolean,onClose:()=>void}){
+export default function EditDentistCard({isVisible,onClose,dentistName, dentistExpertist, hospitalName, hospitalAddress, dentistTel, imgSrc}:{isVisible:boolean,onClose:()=>void,dentistName:string, dentistExpertist:string, hospitalName:string, hospitalAddress:string, dentistTel:string, imgSrc:string}){
     if (!isVisible) return null;
-
     return (
         <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center z-50" onClick={() => onClose()}>
             <div className= "w-[700px] h-[448px] bg-white rounded-2xl shadow-lg p-10 flex flex-row gap-10" onClick={ (e) =>{ e.stopPropagation()}}>
@@ -29,6 +28,7 @@ export default function EditDentistCard({isVisible,onClose}:{isVisible:boolean,o
                         <TextField
                             label= "Name" 
                             variant="outlined"
+                            defaultValue= {dentistName}
                             sx={{
                             "& .MuiInputLabel-root": { color: "#504099" },    
                             "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
@@ -49,6 +49,7 @@ export default function EditDentistCard({isVisible,onClose}:{isVisible:boolean,o
                         <TextField
                             label= "Expertist"
                             variant="outlined"
+                            defaultValue= {dentistExpertist}
                             sx={{
                             "& .MuiInputLabel-root": { color: "#504099" },    
                             "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },

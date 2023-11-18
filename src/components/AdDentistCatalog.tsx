@@ -23,7 +23,7 @@ export default function AdDentistCatalog(){
                 <button className='w-[45px] h-[45px] rounded-full relative bg-vividpurple flex justify-center items-center' onClick={() => setShowModal(true)}>
                     <Icon icon="gridicons:create"  color="white" className= "w-3/5 h-3/5"/>
                 </button>
-            </div>
+                </div>
             <div className=" m-5 flex flex-wrap justify-start gap-20 px-20">
             {mockDentist.map((e) => (
                     <DentistCard
@@ -39,6 +39,5 @@ export default function AdDentistCatalog(){
             <CreateDentistCard isVisible = {showModal} onClose={() => {setShowModal(false)}}/>
             </Fragment>
         </div>
-
-    );
+        );
 }
