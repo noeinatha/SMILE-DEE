@@ -2,17 +2,19 @@
 import { TextField } from "@mui/material";
 import { Icon } from '@iconify/react';
 import Image from "next/image";
+import { addDentist } from "@/actions/addDentist";
 export default function CreateDentistCard({isVisible,onClose}:{isVisible:boolean,onClose:()=>void}){
     if (!isVisible) return null;
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center z-50" onClick={() => onClose()}>
-            <div className= "w-[700px] h-[448px] bg-white rounded-2xl shadow-lg p-10 flex flex-row gap-10 " onClick={ (e) =>{ e.stopPropagation()}}>
+        <div className= "fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center z-50" onClick={() => onClose()}>
+            <form action = {addDentist} className= "w-[700px] h-[448px] bg-white rounded-2xl shadow-lg p-10 flex flex-row gap-10 " onClick={ (e) =>{ e.stopPropagation()}}>
             <div className="w-[120px] h-[120px] flex justify-center items-center mb-2.5 relative">
-                <div className='w-[117px] h-[117px] rounded-full relative '>
-                        <Image src = {'/img/defaultProfile.jpg'}
+                <div className='w-[117px] h-[117px] rounded-full relative'>
+                        <Image src = 'https://drive.google.com/uc?export=view&id=1dAdCkuYrkOdzopdQuUqGzZddxMo2VNYS'
                         alt = "Dentist Picture"
                         fill = {true}
-                        className = "object-cover rounded-full"/> 
+                        className = "object-cover rounded-full"
+                        /> 
                 </div>
                 <button>
                     <Icon icon="icon-park-solid:add-one" color="#313866" width="30" height="30" className="absolute bottom-0 right-2"/>
@@ -27,6 +29,7 @@ export default function CreateDentistCard({isVisible,onClose}:{isVisible:boolean
                         <div>
                         <TextField
                             label= "Name"
+                            name = "name"
                             variant="outlined"
                             sx={{
                             "& .MuiInputLabel-root": { color: "#504099" },    
@@ -47,6 +50,7 @@ export default function CreateDentistCard({isVisible,onClose}:{isVisible:boolean
                         <div className="flex flex-row gap-20">
                         <TextField
                             label= "Expertist"
+                            name = "expertist"
                             variant="outlined"
                             sx={{
                             "& .MuiInputLabel-root": { color: "#504099" },    
@@ -69,6 +73,7 @@ export default function CreateDentistCard({isVisible,onClose}:{isVisible:boolean
                         <div>
                         <TextField
                             label= "Hospital"
+                            name="hospital"
                             variant="outlined"
                             sx={{
                             "& .MuiInputLabel-root": { color: "#504099" },    
@@ -89,6 +94,7 @@ export default function CreateDentistCard({isVisible,onClose}:{isVisible:boolean
                         <div className="flex flex-row gap-20">
                         <TextField
                             label= "Address"
+                            name="address"
                             variant="outlined"
                             sx={{
                             "& .MuiInputLabel-root": { color: "#504099" },    
@@ -111,6 +117,7 @@ export default function CreateDentistCard({isVisible,onClose}:{isVisible:boolean
                         <div>
                         <TextField
                             label= "Tel"
+                            name="tel"
                             variant="outlined"
                             sx={{
                             "& .MuiInputLabel-root": { color: "#504099" },    
@@ -126,10 +133,10 @@ export default function CreateDentistCard({isVisible,onClose}:{isVisible:boolean
                     </div>
                 </div>
                 <div className='w-full h-[45px] flex flex-row justify-end'>
-                    <button className="p-2.5 text-white bg-darkpurple font-semibold  text-sm rounded-2xl hover:bg-vividpurple">CREATE</button>
+                    <button type = "submit" className="p-2.5 text-white bg-darkpurple font-semibold  text-sm rounded-2xl hover:bg-vividpurple" onClick={() => onClose()}>CREATE</button>
                 </div>
             </div>
-        </div>
+        </form>
 
         </div>
         
