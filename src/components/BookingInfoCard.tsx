@@ -9,14 +9,14 @@ export default function BookingInfoCard() {
   return (
     <div className="w-[760px] h-[448px] bg-white rounded-2xl shadow-lg px-12 py-5 gap-6 flex flex-col">
       <div className="flex flex-col">
-        <div className="font-sans font-medium text-md text-darkpurple pb-3">
+        <div className="font-sans font-medium text-md text-darkpurple pb-3 font-inria">
           Your name:
         </div>
         <div className="flex flex-row gap-20">
           <TextField
             label="Firstname"
             variant="outlined"
-            className="w-[200px]"
+            className="w-[200px] font-inria"
             sx={{
               "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
               "& .MuiOutlinedInput-root.Mui-focused": {
@@ -29,7 +29,7 @@ export default function BookingInfoCard() {
           <TextField
             label="Lastname"
             variant="outlined"
-            className="w-[200px]"
+            className="w-[200px] font-inria"
             sx={{
               "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
               "& .MuiOutlinedInput-root.Mui-focused": {
@@ -42,12 +42,12 @@ export default function BookingInfoCard() {
         </div>
       </div>
       <div className="grid gap-3">
-        <div className="font-sans font-medium text-md text-darkpurple">
+        <div className="font-sans font-medium text-md text-darkpurple font-inria">
           Date:
         </div>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
-            className="w-[200px]"
+            className="w-[200px] font-inria"
             label="MM/DD/YYYY"
             sx={{
               svg: { color: "#ED7B7B" },
@@ -67,12 +67,12 @@ export default function BookingInfoCard() {
         </LocalizationProvider>
       </div>
       <div className="grid gap-3">
-        <div className="font-sans font-medium text-md text-darkpurple">
+        <div className="font-sans font-medium text-md text-darkpurple font-inria">
           Time:
         </div>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <TimePicker
-            className="w-[200px]"
+            className="w-[200px] font-inria"
             label="Time"
             sx={{
               svg: { color: "#ED7B7B" },

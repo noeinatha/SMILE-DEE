@@ -86,7 +86,7 @@ function ColorlibStepIcon(props: StepIconProps) {
 export default function StepBar({ step }: { step: number }) {
   return (
     <div className="flex flex-col justify-center gap-2.5 p-5 w-full">
-      <div className="font-sans font-bold text-4xl text-center text-darkblue pb-3">
+      <div className="font-sans font-bold text-4xl text-center text-darkblue pb-3 font-inria">
         MAKE AN APPOINTMENT
       </div>
       <Box sx={{ width: "100%" }}>
@@ -98,7 +98,7 @@ export default function StepBar({ step }: { step: number }) {
           {steps.map((label) => (
             <Step key={label}>
               <StepLabel StepIconComponent={ColorlibStepIcon}>
-                <div className="font-sans font-medium text-xl text-darkblue">
+                <div className="font-sans font-medium text-xl text-darkblue font-inria">
                   {label}
                 </div>
               </StepLabel>

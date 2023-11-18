@@ -21,6 +21,9 @@ module.exports = {
       fadegray: "#F3F3F3",
       fadebg: "#F5EAEA",
     },
+    fontFamily: {
+      inria: ["Inria Sans", "sans-serif"],
+    },
   },
   plugins: [],
 };

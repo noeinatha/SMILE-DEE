@@ -11,7 +11,7 @@ export default async function AppointmentCatalog({
   if (!session || !session.user.token) return null;
   return (
     <div>
-      <div className="text-5xl font-bold text-center text-darkblue py-5">
+      <div className="font-inria text-5xl font-bold text-center text-darkblue py-5">
         MY APPOINTMENT
       </div>
       <div className="m-5 flex flex-wrap justify-center gap-20 px-20">

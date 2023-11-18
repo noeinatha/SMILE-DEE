@@ -14,13 +14,13 @@ export default async function NavigationBar() {
       <div className="w-full flex flex-row-reverse">
         {session ? (
           <Link href="/api/auth/signout">
-            <div className="w-fit h-full text-center pl-5 pr-5 pt-[10px] font-sans font-medium text-2xl text-darkblue">
+            <div className="w-fit h-full text-center pl-5 pr-5 pt-[10px] font-sans font-medium text-2xl text-darkblue font-inria">
               Sign-Out of {session.user?.name}
             </div>
           </Link>
         ) : (
           <Link href="/api/auth/signin">
-            <div className="w-fit h-full text-center pl-5 pr-5 pt-[10px] font-sans font-medium text-2xl text-darkblue">
+            <div className="w-fit h-full text-center pl-5 pr-5 pt-[10px] font-sans font-medium text-2xl text-darkblue font-inria">
               Sign-In
             </div>
           </Link>

@@ -10,7 +10,7 @@ export default function NavigationItem({
   return (
     <Link
       href={pageRef}
-      className="w-fit h-full text-center pl-5 pr-5 pt-[10px] font-sans font-medium text-2xl text-darkblue flex flex-row justify-center items-center"
+      className="w-fit h-full text-center pl-5 pr-5 pt-[10px] font-sans font-medium text-2xl text-darkblue flex flex-row justify-center items-center font-inria"
     >
       {title}
     </Link>

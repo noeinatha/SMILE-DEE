@@ -12,9 +12,9 @@ export default function AppointmentCard({
 }) {
   return (
     <div className="w-[1000px] h-[320px] px-5 py-5 bg-white rounded-2xl shadow-lg ">
-      <div className="p-2.5 text-2xl font-bold text-darkblue">
+      <div className="p-2.5 text-2xl font-bold text-darkblue font-inria">
         Appointment Scheduled for
-        <span className="font-normal text-darkblue"> {user}</span>
+        <span className="font-normal text-darkblue font-inria"> {user}</span>
       </div>
       <div className="px-10 gap-2.5 flex flex-col w-full y-auto">
         <div className="flex flex-row gap-2.5 h-[105px]">
@@ -27,8 +27,8 @@ export default function AppointmentCard({
             />
           </div>
           <div className="flex flex-col justify-center items-start gap-2.5">
-            <div className="text-xl text-darkblue ">{dentist}</div>
-            <div className="text-l text-darkpurple flex flex-row gap-0.5">
+            <div className="text-xl text-darkblue font-inria">{dentist}</div>
+            <div className="text-l text-darkpurple flex flex-row gap-0.5 font-inria">
               <Icon
                 icon="eva:pin-outline"
                 color="#ed7b7b"
@@ -50,8 +50,8 @@ export default function AppointmentCard({
               />
             </div>
             <div className="flex flex-col gap-2 justify-center items-start h-full">
-              <div className="text-xl font-bold">Date & Time</div>
-              <div className="text-darkpurple">{bookingDate}</div>
+              <div className="text-xl font-bold font-inria">Date & Time</div>
+              <div className="text-darkpurple font-inria">{bookingDate}</div>
             </div>
           </div>
           <div className="h-full flex flex-row justify-center items-center gap-5">
