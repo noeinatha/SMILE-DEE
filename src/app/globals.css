@@ -20,5 +20,5 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  padding-top: 80px;
+  margin-top: 80px;
 }

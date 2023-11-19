@@ -10,7 +10,7 @@ export async function addDentist(addDentist: FormData) {
         const expertist = addDentist.get("expertist")
         const tel = addDentist.get("tel")
         const picture = addDentist.get("picture")
-        console.log("after0",addDentist)
+        // console.log("after0",addDentist)
         try {
             await dbConnect()
             const dentist = await Dentist.create({

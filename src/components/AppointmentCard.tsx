@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import { Fragment, useState } from "react";
 import deleteAppointments from "@/libs/deleteAppointments";
 export default function AppointmentCard({
   bookingDate,
@@ -17,6 +18,7 @@ export default function AppointmentCard({
   bookingId: string;
   token: string;
 }) {
+  const [showModal, setShowModal] = useState(false);
   const handleDeleteBooking = async ({ bookingId }: { bookingId: string }) => {
     console.log("Hi");
     try {
@@ -27,8 +29,18 @@ export default function AppointmentCard({
     }
   };
   return (
+<<<<<<< Updated upstream
     <div className="w-[1000px] h-fit px-5 py-5 bg-white rounded-2xl shadow-lg ">
       <div className="p-2.5 text-xl font-bold text-darkblue font-inria">
+||||||| Stash base
+    <div className="w-[1000px] h-[320px] px-5 py-5 bg-white rounded-2xl shadow-lg ">
+      <div className="p-2.5 text-2xl font-bold text-darkblue font-inria">
+=======
+    <div>
+    <Fragment>
+    <div className="w-[1000px] h-[320px] px-5 py-5 bg-white rounded-2xl shadow-lg ">
+      <div className="p-2.5 text-2xl font-bold text-darkblue font-inria">
+>>>>>>> Stashed changes
         Appointment Scheduled for
         <span className="font-normal text-darkblue font-inria">
           {" "}
@@ -80,12 +92,17 @@ export default function AppointmentCard({
                 className="w-3/5 h-3/5"
               />
             </button>
-            <button className="w-[45px] h-[45px] rounded-full relative bg-fadepurple flex justify-center items-center">
+            <button className="w-[45px] h-[45px] rounded-full relative bg-fadepurple flex justify-center items-center" onClick={(e) => {
+                setShowModal(true);
+                e.stopPropagation();
+              }}>
               <Icon icon="tabler:edit" color="white" className="w-3/5 h-3/5" />
             </button>
           </div>
         </div>
       </div>
+    </div>
+    </Fragment>
     </div>
   );
 }
