@@ -3,18 +3,23 @@ import Image from "next/image";
 import { Icon } from "@iconify/react";
 export default function AppointmentCard({
   bookingDate,
-  user,
-  dentist,
+  userName,
+  dentistName,
+  dentistTel,
 }: {
   bookingDate: any;
-  user: any;
-  dentist: any;
+  userName: any;
+  dentistName: any;
+  dentistTel: any;
 }) {
   return (
     <div className="w-[1000px] h-[320px] px-5 py-5 bg-white rounded-2xl shadow-lg ">
       <div className="p-2.5 text-2xl font-bold text-darkblue font-inria">
         Appointment Scheduled for
-        <span className="font-normal text-darkblue font-inria"> {user}</span>
+        <span className="font-normal text-darkblue font-inria">
+          {" "}
+          {userName}
+        </span>
       </div>
       <div className="px-10 gap-2.5 flex flex-col w-full y-auto">
         <div className="flex flex-row gap-2.5 h-[105px]">
@@ -27,15 +32,17 @@ export default function AppointmentCard({
             />
           </div>
           <div className="flex flex-col justify-center items-start gap-2.5">
-            <div className="text-xl text-darkblue font-inria">{dentist}</div>
+            <div className="text-xl text-darkblue font-inria">
+              {dentistName}
+            </div>
             <div className="text-l text-darkpurple flex flex-row gap-0.5 font-inria">
               <Icon
-                icon="eva:pin-outline"
+                icon="solar:phone-bold"
                 color="#ed7b7b"
                 width="24"
                 height="24"
               />
-              SW DEV Hospital
+              {dentistTel}
             </div>
           </div>
         </div>

@@ -19,8 +19,9 @@ export default async function AppointmentCatalog({
           // console.log(appointmentItem)
           <AppointmentCard
             bookingDate={appointmentItem.bookingDate}
-            user={appointmentItem.user.name}
-            dentist={appointmentItem.dentist.name}
+            userName={appointmentItem.user.name}
+            dentistName={appointmentItem.dentist.name}
+            dentistTel={appointmentItem.dentist.tel}
           />
         ))}
       </div>
