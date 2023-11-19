@@ -8,7 +8,8 @@ export default async function AppointmentCatalog({
 }) {
   const appointmentJsonReady = await appointmentJson;
   const session = await getServerSession(authOptions);
-  if (!session || !session.user.token) return null;
+  if (!session) return null;
+  const token = session.user.token;
   return (
     <div>
       <div className="font-inria text-5xl font-bold text-center text-darkblue py-5">
@@ -16,12 +17,13 @@ export default async function AppointmentCatalog({
       </div>
       <div className="m-5 flex flex-wrap justify-center gap-20 px-20">
         {appointmentJsonReady.data.map((appointmentItem: Object) => (
-          // console.log(appointmentItem)
           <AppointmentCard
             bookingDate={appointmentItem.bookingDate}
             userName={appointmentItem.user.name}
             dentistName={appointmentItem.dentist.name}
             dentistTel={appointmentItem.dentist.tel}
+            bookingId={appointmentItem._id}
+            token={token}
           />
         ))}
       </div>
