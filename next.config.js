@@ -4,7 +4,7 @@ const nextConfig = {
     serverActions: true,
   },
   images: {
-    domains: ["drive.google.com"],
+    domains: ["drive.google.com","files.edgestore.dev"],
   },
 };
 module.exports = nextConfig;

@@ -7,8 +7,9 @@ export default async function AdDentistCatalog({
   const dentistJsonReady = await dentistJson;
   return (
     <div>
-      <div className="flex flex-wrap justify-center gap-10 px-10 py-5">
+      <div className="flex flex-wrap justify-start gap-10 px-10 py-5">
         {dentistJsonReady.data.map((dentistItem: Object) => (
+          // console.log(dentistItem),
           <DentistCard
             dentistName={dentistItem.name}
             dentistExpertist={dentistItem.expertist}
@@ -16,6 +17,7 @@ export default async function AdDentistCatalog({
             hospitalAddress={dentistItem.address}
             dentistTel={dentistItem.tel}
             imgSrc={dentistItem.picture}
+            dentistid= {dentistItem._id}
           />
         ))}
       </div>

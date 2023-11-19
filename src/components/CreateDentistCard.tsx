@@ -2,23 +2,56 @@
 import { TextField } from "@mui/material";
 import { Icon } from '@iconify/react';
 import Image from "next/image";
+import * as React from 'react';
 import { addDentist } from "@/actions/addDentist";
+// import ImageUploader from "./ImageUploader";
+import { SingleImageDropzone } from '@/components/SingleImageDropzone';
+import { useEdgeStore } from '@/libs/edgestore';
 export default function CreateDentistCard({isVisible,onClose}:{isVisible:boolean,onClose:()=>void}){
     if (!isVisible) return null;
+    const [file, setFile] = React.useState<File>();
+    const { edgestore } = useEdgeStore();
+    const [url, setURL] = React.useState("");
     return (
         <div className= "fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center z-50" onClick={() => onClose()}>
             <form action = {addDentist} className= "w-[700px] h-[448px] bg-white rounded-2xl shadow-lg p-10 flex flex-row gap-10 " onClick={ (e) =>{ e.stopPropagation()}}>
-            <div className="w-[120px] h-[120px] flex justify-center items-center mb-2.5 relative">
-                <div className='w-[117px] h-[117px] rounded-full relative'>
-                        <Image src = 'https://drive.google.com/uc?export=view&id=1dAdCkuYrkOdzopdQuUqGzZddxMo2VNYS'
-                        alt = "Dentist Picture"
-                        fill = {true}
-                        className = "object-cover rounded-full"
-                        /> 
+            <div>
+            <div>
+                    <SingleImageDropzone
+                        width={200}
+                        height={200}
+                        value={file}
+                        onChange={(file) => {
+                        setFile(file);
+                        }}
+                    /> 
+                    <div className="w-full flex justify-center items-center">
+                    <button type = "button" className="p-2.5 mt-2.5 text-white bg-darkpurple font-semibold  text-sm rounded-2xl hover:bg-vividpurple"
+                        onClick={async () => {
+                        if (file) {
+                            const res = await edgestore.publicImages.upload({
+                            file,
+                            onProgressChange: (progress) => {
+                                // you can use this to show a progress bar
+                                console.log(progress);
+                            },
+                            });
+                            
+                            // you can run some server action or api here
+                            // to add the necessary data to your database
+                            console.log(res);
+                            setURL(res.url);
+                        }
+                        }}
+                    >
+                        Upload
+                    </button>
+                    </div>
+                    <div className="w-full flex justify-center items-center">
+                    <input type="hidden"  name="picture" value= {url}/>
+                    </div>
+ 
                 </div>
-                <button>
-                    <Icon icon="icon-park-solid:add-one" color="#313866" width="30" height="30" className="absolute bottom-0 right-2"/>
-                </button>
             </div>
             <div>
                 <div className="flex flex-row gap-5 mb-5">
@@ -133,7 +166,7 @@ export default function CreateDentistCard({isVisible,onClose}:{isVisible:boolean
                     </div>
                 </div>
                 <div className='w-full h-[45px] flex flex-row justify-end'>
-                    <button type = "submit" className="p-2.5 text-white bg-darkpurple font-semibold  text-sm rounded-2xl hover:bg-vividpurple" onClick={() => onClose()}>CREATE</button>
+                    <button type = "submit" className="p-2.5 text-white bg-darkpurple font-semibold  text-sm rounded-2xl hover:bg-vividpurple">CREATE</button>
                 </div>
             </div>
         </form>

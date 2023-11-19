@@ -6,9 +6,10 @@ export default function Dentists() {
   const dentists = getDentists();
   return (
     <div className=" h-screen w-full">
-      <AdminDentist />
+      <AdminDentist/>
       {/* <DentistCatalog dentistJson={dentists}/> */}
       <AdDentistCatalog dentistJson={dentists}/>
+
     </div>
   );
 }

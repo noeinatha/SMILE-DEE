@@ -3,8 +3,18 @@ import Image from "next/image";
 import { Icon } from '@iconify/react';
 import { Fragment, useState } from "react";
 import EditDentistCard from "./EditDentistCard";
-export default function DentistCard({dentistName, dentistExpertist, hospitalName, hospitalAddress, dentistTel, imgSrc}:{dentistName:string, dentistExpertist:string, hospitalName:string, hospitalAddress:string, dentistTel:string, imgSrc:string}){
+import deleteDentist from "@/libs/deleteDentist";
+export default function DentistCard({dentistName, dentistExpertist, hospitalName, hospitalAddress, dentistTel, imgSrc,dentistid}:{dentistName:string, dentistExpertist:string, hospitalName:string, hospitalAddress:string, dentistTel:string, imgSrc:string,dentistid:string}){
     const [showModal, setShowModal] = useState(false);
+    const handleDeleteDentist = async (dentistid) => {
+        console.log("hi");
+        try {
+          await deleteDentist(dentistid);
+          console.log(`Dentist with ID ${dentistid} deleted successfully.`);
+        } catch (error) {
+          console.error('Error deleting dentist:', error);
+        }
+      };
     return (
         <div>
             <Fragment>
@@ -29,13 +39,14 @@ export default function DentistCard({dentistName, dentistExpertist, hospitalName
                 </div>
             </div>
             <div className='w-full h-[45px] flex flex-row gap-1.5 justify-end'>
-                <button className='w-[45px] h-full rounded-full relative bg-red flex justify-center items-center'>
+                <button className='w-[45px] h-full rounded-full relative bg-red flex justify-center items-center' onClick={()=>handleDeleteDentist(dentistid)}>
                     <Icon icon="mdi:bin-outline" color="white" className= "w-3/5 h-3/5"/>
                 </button>
                 <button className='w-[45px] h-full rounded-full relative bg-fadepurple flex justify-center items-center' onClick={(e) => {setShowModal(true)  ; e.stopPropagation()}}>
                     <Icon icon="tabler:edit" color="white" className= "w-3/5 h-3/5" />
                 </button>
             </div>
+             
         </div>
             <EditDentistCard isVisible = {showModal} onClose={() => {setShowModal(false)}} 
                 dentistName={dentistName}
@@ -44,6 +55,7 @@ export default function DentistCard({dentistName, dentistExpertist, hospitalName
                 hospitalAddress={hospitalAddress}
                 dentistTel={dentistTel}
                 imgSrc={imgSrc}/>
+             
             </Fragment>
         </div>
         
