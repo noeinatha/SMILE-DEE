@@ -8,12 +8,11 @@ export default function DateCard({
   time: string;
 }) {
   return (
-    <div className="w-[310px] h-[170px] gap-2 bg-white rounded-2xl shadow-lg flex flex-col items-center justify-center text-darkblue border-4 border-red font-inria">
+    <div className="w-[320px] h-[120px] gap-2 bg-white rounded-2xl flex flex-col items-center justify-center text-darkblue font-inria">
       <div className="font-semibold text-xl p-2 w-full flex justify-center border-b-4 border-red font-inria">
         {day}
       </div>
       <div className="font-medium text-xl p-2 font-inria">{date}</div>
-      <div className="font-medium text-xl p-2 font-inria">{time}</div>
     </div>
   );
 }

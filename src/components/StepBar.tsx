@@ -10,10 +10,10 @@ import StepConnector, {
 import { styled } from "@mui/material/styles";
 import { StepIconProps } from "@mui/material/StepIcon";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
-import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import DoneAllRoundedIcon from "@mui/icons-material/DoneAllRounded";
+import EventIcon from "@mui/icons-material/Event";
 
-const steps = ["Select your dentist", "Booking", "Finish"];
+const steps = ["Booking date", "Select dentist", "Finish"];
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -68,8 +68,8 @@ function ColorlibStepIcon(props: StepIconProps) {
   const { active, completed, className } = props;
 
   const icons: { [index: string]: React.ReactElement } = {
-    1: <PersonSearchIcon />,
-    2: <EditRoundedIcon />,
+    1: <EventIcon />,
+    2: <PersonSearchIcon />,
     3: <DoneAllRoundedIcon />,
   };
 
@@ -86,7 +86,7 @@ function ColorlibStepIcon(props: StepIconProps) {
 export default function StepBar({ step }: { step: number }) {
   return (
     <div className="flex flex-col justify-center gap-2.5 p-5 w-full">
-      <div className="font-sans font-bold text-4xl text-center text-darkblue pb-3 font-inria">
+      <div className="font-sans font-bold text-3xl text-center text-darkblue pb-3 font-inria">
         MAKE AN APPOINTMENT
       </div>
       <Box sx={{ width: "100%" }}>
@@ -94,11 +94,12 @@ export default function StepBar({ step }: { step: number }) {
           activeStep={step}
           alternativeLabel
           connector={<ColorlibConnector />}
+          className="h-[80px]"
         >
           {steps.map((label) => (
             <Step key={label}>
               <StepLabel StepIconComponent={ColorlibStepIcon}>
-                <div className="font-sans font-medium text-xl text-darkblue font-inria">
+                <div className="font-sans font-md text-xl text-darkblue font-inria">
                   {label}
                 </div>
               </StepLabel>

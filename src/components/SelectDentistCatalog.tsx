@@ -7,7 +7,7 @@ export default async function SelectDentistCatalog({
   const dentistJsonReady = await dentistJson;
 
   return (
-    <div className="flex flex-wrap justify-center gap-10 px-10 py-5">
+    <div className="overflow-auto flex flex-wrap justify-center gap-10 px-10 py-5">
       {dentistJsonReady.data.map((dentistItem: Object) => (
         <SelectDentistCard
           dentistName={dentistItem.name}
