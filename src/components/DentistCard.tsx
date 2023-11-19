@@ -4,12 +4,20 @@ import { Icon } from '@iconify/react';
 import { Fragment, useState } from "react";
 import EditDentistCard from "./EditDentistCard";
 import deleteDentist from "@/libs/deleteDentist";
-export default function DentistCard({dentistName, dentistExpertist, hospitalName, hospitalAddress, dentistTel, imgSrc,dentistid}:{dentistName:string, dentistExpertist:string, hospitalName:string, hospitalAddress:string, dentistTel:string, imgSrc:string,dentistid:string}){
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import getUserProfile from "@/libs/getUserProfile";
+export default async function DentistCard({dentistName, dentistExpertist, hospitalName, hospitalAddress, dentistTel, imgSrc,dentistid}:{dentistName:string, dentistExpertist:string, hospitalName:string, hospitalAddress:string, dentistTel:string, imgSrc:string,dentistid:string}){
     const [showModal, setShowModal] = useState(false);
-    const handleDeleteDentist = async (dentistid) => {
+    const session = await getServerSession(authOptions);
+    if(!session) 
+        return null
+    const profile = await getUserProfile(session.user.token)
+
+    const handleDeleteDentist = async ({dentistid }: {dentistid:string}) => {
         console.log("hi");
         try {
-          await deleteDentist(dentistid);
+          await deleteDentist(dentistid,profile.token);
           console.log(`Dentist with ID ${dentistid} deleted successfully.`);
         } catch (error) {
           console.error('Error deleting dentist:', error);
@@ -39,7 +47,7 @@ export default function DentistCard({dentistName, dentistExpertist, hospitalName
                 </div>
             </div>
             <div className='w-full h-[45px] flex flex-row gap-1.5 justify-end'>
-                <button className='w-[45px] h-full rounded-full relative bg-red flex justify-center items-center' onClick={()=>handleDeleteDentist(dentistid)}>
+                <button className='w-[45px] h-full rounded-full relative bg-red flex justify-center items-center' onClick={()=>handleDeleteDentist({dentistid})}>
                     <Icon icon="mdi:bin-outline" color="white" className= "w-3/5 h-3/5"/>
                 </button>
                 <button className='w-[45px] h-full rounded-full relative bg-fadepurple flex justify-center items-center' onClick={(e) => {setShowModal(true)  ; e.stopPropagation()}}>
