@@ -1,15 +1,29 @@
 "use client";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import deleteAppointments from "@/libs/deleteAppointments";
 export default function AppointmentCard({
   bookingDate,
   user,
   dentist,
+  bookingId,
+  token
 }: {
-  bookingDate: any;
-  user: any;
-  dentist: any;
+  bookingDate: string;
+  user: string;
+  dentist: string;
+  bookingId: string;
+  token: string;
 }) {
+  const handleDeleteBooking = async ({ bookingId }: { bookingId: string }) => {
+    console.log("Hi");
+    try {
+      await deleteAppointments(bookingId, token);
+      console.log(`Booking with ID ${bookingId} deleted successfully.`);
+    } catch (error) {
+      console.error("Error deleting booking:", error);
+    }
+  };
   return (
     <div className="w-[1000px] h-[320px] px-5 py-5 bg-white rounded-2xl shadow-lg ">
       <div className="p-2.5 text-2xl font-bold text-darkblue font-inria">
@@ -55,16 +69,16 @@ export default function AppointmentCard({
             </div>
           </div>
           <div className="h-full flex flex-row justify-center items-center gap-5">
-            <div className="w-[45px] h-[45px] rounded-full relative bg-red flex justify-center items-center">
+            <button className="w-[45px] h-[45px] rounded-full relative bg-red flex justify-center items-center"  onClick={() => handleDeleteBooking({ bookingId })}>
               <Icon
                 icon="mdi:bin-outline"
                 color="white"
                 className="w-3/5 h-3/5"
               />
-            </div>
-            <div className="w-[45px] h-[45px] rounded-full relative bg-fadepurple flex justify-center items-center">
+            </button>
+            <button className="w-[45px] h-[45px] rounded-full relative bg-fadepurple flex justify-center items-center">
               <Icon icon="tabler:edit" color="white" className="w-3/5 h-3/5" />
-            </div>
+            </button>
           </div>
         </div>
       </div>
