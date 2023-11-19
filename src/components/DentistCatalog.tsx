@@ -7,8 +7,9 @@ export default async function DentistCatalog({
   const dentistJsonReady = await dentistJson;
   return (
     <div>
-      <div className="text-5xl font-bold text-center text-red py-5">
-        GET TO KNOW OUR <span className="text-darkblue">DENTIST</span>
+      <div className="text-5xl font-bold text-center text-red py-5 font-inria">
+        GET TO KNOW OUR{" "}
+        <span className="text-darkblue font-inria">DENTIST</span>
       </div>
       <div className="m-5 flex flex-wrap justify-start gap-20 px-20">
         {dentistJsonReady.data.map((dentistItem: Object) => (

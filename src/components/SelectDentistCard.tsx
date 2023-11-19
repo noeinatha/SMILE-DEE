@@ -29,27 +29,27 @@ export default function SelectDentistCard({
       </div>
       <div className="w-full h-[168px]">
         <div className="w-full h-2/5 flex flex-col justify-center">
-          <div className="text-lg text-darkblue font-bold pl-2.5 text-center py-1.5 px-2.5">
+          <div className="text-lg text-darkblue font-bold pl-2.5 text-center py-1.5 px-2.5 font-inria">
             {dentistName}
           </div>
-          <div className="text-sm text-gray pl-2.5 text-center py-1.5 px-2.5">
+          <div className="text-sm text-gray pl-2.5 text-center py-1.5 px-2.5 font-inria">
             Expertist: {dentistExpertist}
           </div>
         </div>
         <div className="w-full h-3/5 flex flex-col justify-center px-2.5">
-          <div className="w-full h-1/3 px-2.5 py-1.5 text-darkblu  text-sm">
+          <div className="w-full h-1/3 px-2.5 py-1.5 text-darkblu  text-sm font-inria">
             Hospital: {hospitalName}
           </div>
-          <div className="w-full h-1/3 px-2.5 py-1.5 text-darkblue text-sm">
+          <div className="w-full h-1/3 px-2.5 py-1.5 text-darkblue text-sm font-inria">
             Address: {hospitalAddress}
           </div>
-          <div className="w-full h-1/3 px-2.5 py-1.5 text-darkblue text-sm">
+          <div className="w-full h-1/3 px-2.5 py-1.5 text-darkblue text-sm font-inria">
             Tel: {dentistTel}
           </div>
         </div>
       </div>
       <div className="w-full h-[45px] flex flex-row justify-end">
-        <button className="p-2.5 text-white bg-darkpurple font-semibold darkpurple text-sm rounded-2xl">
+        <button className="p-2.5 text-white bg-darkpurple font-semibold darkpurple text-sm rounded-2xl font-inria">
           SELECT
         </button>
       </div>
