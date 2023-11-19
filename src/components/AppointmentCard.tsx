@@ -29,18 +29,10 @@ export default function AppointmentCard({
     }
   };
   return (
-<<<<<<< Updated upstream
-    <div className="w-[1000px] h-fit px-5 py-5 bg-white rounded-2xl shadow-lg ">
-      <div className="p-2.5 text-xl font-bold text-darkblue font-inria">
-||||||| Stash base
-    <div className="w-[1000px] h-[320px] px-5 py-5 bg-white rounded-2xl shadow-lg ">
-      <div className="p-2.5 text-2xl font-bold text-darkblue font-inria">
-=======
     <div>
     <Fragment>
-    <div className="w-[1000px] h-[320px] px-5 py-5 bg-white rounded-2xl shadow-lg ">
-      <div className="p-2.5 text-2xl font-bold text-darkblue font-inria">
->>>>>>> Stashed changes
+    <div className="w-[1000px] h-fit px-5 py-5 bg-white rounded-2xl shadow-lg ">
+      <div className="p-2.5 text-xl font-bold text-darkblue font-inria">
         Appointment Scheduled for
         <span className="font-normal text-darkblue font-inria">
           {" "}
