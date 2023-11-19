@@ -8,7 +8,9 @@ export default async function deleteDentist(dentistId:string , token:string) {
     });
   
     if (!response.ok) {
-      throw new Error(`Failed to delete dentist with ID ${dentistId}`);
+      const errorData = await response.json();
+      const error = errorData?.message || 'Failed to delete dentist';
+      throw new Error(error);
     }
     return await response.json();
   }

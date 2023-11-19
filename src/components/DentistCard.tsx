@@ -4,10 +4,7 @@ import { Icon } from "@iconify/react";
 import { Fragment, useState } from "react";
 import EditDentistCard from "./EditDentistCard";
 import deleteDentist from "@/libs/deleteDentist";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import getUserProfile from "@/libs/getUserProfile";
-export default async function DentistCard({
+export default function DentistCard({
   dentistName,
   dentistExpertist,
   hospitalName,
@@ -15,6 +12,7 @@ export default async function DentistCard({
   dentistTel,
   imgSrc,
   dentistid,
+  token
 }: {
   dentistName: string;
   dentistExpertist: string;
@@ -23,16 +21,12 @@ export default async function DentistCard({
   dentistTel: string;
   imgSrc: string;
   dentistid: string;
+  token: string;
 }) {
   const [showModal, setShowModal] = useState(false);
-  const session = await getServerSession(authOptions);
-  if (!session) return null;
-  const profile = await getUserProfile(session.user.token);
-
   const handleDeleteDentist = async ({ dentistid }: { dentistid: string }) => {
-    console.log("hi");
     try {
-      await deleteDentist(dentistid, profile.token);
+      await deleteDentist(dentistid, token);
       console.log(`Dentist with ID ${dentistid} deleted successfully.`);
     } catch (error) {
       console.error("Error deleting dentist:", error);
@@ -106,6 +100,8 @@ export default async function DentistCard({
           hospitalAddress={hospitalAddress}
           dentistTel={dentistTel}
           imgSrc={imgSrc}
+          dentistid= {dentistid}
+          token= {token}
         />
       </Fragment>
     </div>
