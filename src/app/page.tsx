@@ -8,6 +8,7 @@ import { LoginForm } from "@/components/LoginForm";
 import SelectDentistCard from "@/components/SelectDentistCard";
 import ViewDentistCard from "@/components/ViewDentistCard";
 import Banner from "@/components/Banner";
+import BookingForm from "@/components/BookingForm";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
       {/* <BookingInfoCard /> */}
       {/* <LoginForm/> */}
       {/* <SelectDentistCard/> */}
-      <Banner/>
+      <Banner />
     </main>
   );
 }
