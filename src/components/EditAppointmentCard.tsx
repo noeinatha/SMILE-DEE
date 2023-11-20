@@ -111,6 +111,7 @@ export default function EditDentistCard({
               variant="standard"
               name="dentist"
               id="dentist"
+              defaultValue ={dentistId}
               className="h-[56px] w-[200px]"
               onChange={(e) => {
                 // console.log(value.target.value);
