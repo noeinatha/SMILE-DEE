@@ -19,11 +19,11 @@ export default async function AppointmentCatalog({
       <div className="overflow-auto m-5 flex flex-wrap justify-center gap-10 px-20">
         {appointmentJsonReady.data.map((appointmentItem: Object) => (
           <AppointmentCard
-            bookingDate={dayjs(appointmentItem.bookingDate).format(
-              "dddd, MMMM D, YYYY"
-            )}
+            bookingDate={appointmentItem.bookingDate}
             userName={appointmentItem.user.name}
+            userId={appointmentItem.user._id}
             dentistName={appointmentItem.dentist.name}
+            dentistId={appointmentItem.dentist._id}
             dentistTel={appointmentItem.dentist.tel}
             bookingId={appointmentItem._id}
             token={token}

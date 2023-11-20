@@ -89,8 +89,8 @@ export default function BookingForm({
           </div>
           <Select
             variant="standard"
-            name="hospital"
-            id="hospital"
+            name="dentist"
+            id="dentist"
             className="h-[56px] w-[200px]"
             onChange={(e) => {
               // console.log(value.target.value);
