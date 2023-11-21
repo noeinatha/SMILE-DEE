@@ -16,7 +16,7 @@ export default async function AppointmentCatalog({
       <div className="font-inria text-4xl font-bold text-center text-darkblue py-5">
         MY APPOINTMENT
       </div>
-      <div className="overflow-auto m-5 flex flex-wrap justify-center gap-10 px-20">
+      <div className="overflow-auto flex flex-wrap justify-center gap-10 px-20">
         {appointmentJsonReady.data.map((appointmentItem: Object) => (
           <AppointmentCard
             bookingDate={appointmentItem.bookingDate}
