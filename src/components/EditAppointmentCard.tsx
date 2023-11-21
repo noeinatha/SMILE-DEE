@@ -30,6 +30,7 @@ export default function EditDentistCard({
   const [newBookingDate, setNewBookingDate] = useState<Dayjs | null>(
     bookingDate
   );
+  //console.log("dentistId", dentistId);
 
   useEffect(() => {
     async function fetchDentist() {
@@ -111,7 +112,7 @@ export default function EditDentistCard({
               variant="standard"
               name="dentist"
               id="dentist"
-              defaultValue ={dentistId}
+              value ={newDentistId}
               className="h-[56px] w-[200px]"
               onChange={(e) => {
                 // console.log(value.target.value);

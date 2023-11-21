@@ -1,15 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import BookingForm from "./BookingForm";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { getServerSession } from "next-auth";
 
-export default async function Banner() {
-  const session = await getServerSession(authOptions);
-  if (!session) return null;
-  const token = session.user.token;
-  const userID = session.user._id;
-
+export default function Banner() {
   return (
     <div className="w-full h-full absolute bottom 0">
       <Image
@@ -21,7 +13,7 @@ export default async function Banner() {
       <div className="w-1/2 flex flex-col justify-start items-start z-10 absolute bottom-30 left-10 gap-10">
         <div className="text-darkblue font-bold text-5xl font-inria">
           We wish to provide
-          <span className="text-orage font-inria">
+          {" "}<span className="text-orage font-inria">
             professional dental service
           </span>{" "}
           that match you.
@@ -31,7 +23,7 @@ export default async function Banner() {
                         <Link href="/booking">MAKE AN APPOINTMENT</Link>
                     </button> */}
 
-          <BookingForm token={token} userID={userID} />
+          <BookingForm/>
         </div>
       </div>
     </div>

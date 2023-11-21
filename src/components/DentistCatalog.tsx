@@ -11,7 +11,7 @@ export default async function DentistCatalog({
         GET TO KNOW OUR{" "}
         <span className="text-darkblue font-inria">DENTIST</span>
       </div>
-      <div className="m-5 flex flex-wrap justify-start gap-20 px-20">
+      <div className="flex flex-wrap justify-start gap-10 px-10 py-5">
         {dentistJsonReady.data.map((dentistItem: Object) => (
           <ViewDentistCard
             dentistName={dentistItem.name}

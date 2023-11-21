@@ -7,14 +7,14 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs, { Dayjs } from "dayjs";
 import { useEffect, useState } from "react";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 
-export default function BookingForm({
-  token,
-  userID,
-}: {
-  token: string;
-  userID: string;
-}) {
+export default async function BookingForm() {
+  const session = await getServerSession(authOptions);
+  if (!session) return null;
+  const token = session.user.token;
+  const userID = session.user._id;
   const [dentist, setDentist] = useState<Object[]>([]);
   const [dentistId, setDentistId] = useState<string>("");
   const [bookDate, setBookDate] = useState<Dayjs | null>(null);

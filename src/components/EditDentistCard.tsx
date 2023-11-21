@@ -8,6 +8,7 @@ import { addDentist } from "@/actions/addDentist";
 import updateDentist from "@/libs/updateDentist";
 import { SingleImageDropzone } from "@/components/SingleImageDropzone";
 import { useEdgeStore } from "@/libs/edgestore";
+import { revalidatePath } from "next/cache";
 export default function EditDentistCard({
   isVisible,
   onClose,
@@ -44,9 +45,11 @@ export default function EditDentistCard({
     try {
       await updateDentist(dentistid, token ,name, expertist, hospital, address, tel, picture);
       console.log(`Dentist with ID ${dentistid} edit successfully.`);
+      revalidatePath("/dentists");
     } catch (error) {
       console.error("Error editing dentist:", error);
     }
+
   };
   return (
     <div
