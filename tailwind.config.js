@@ -12,7 +12,7 @@ module.exports = {
       gray: "#838383",
       white: "#FFFFFF",
       fadepurple: "#836096",
-      orage: "#F0B86E",
+      orange: "#F0B86E",
       yellow: "#EBE76C",
       BG: "#F7D9D9",
       pageBG: "#F5EAEA",

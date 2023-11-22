@@ -67,7 +67,7 @@ export const LoginForm = () => {
             </div>
           </div>
           <button
-            className="px-4  py-1.5 border-2 border-white text-white text-sm rounded-xl font-inria"
+            className="w-fit h-fit px-4 py-2 text-white bg-darkpurple font-sans font-medium text-lg rounded-2xl border-2 border-white hover:bg-vividpurple font-inria"
             onClick={(e) => {
               e.stopPropagation();
               router.push("/register");
@@ -171,7 +171,7 @@ export const LoginForm = () => {
                 </FormControl>
               </div>
             </div>
-            <button className="px-4 py-1.5 bg-darkpurple text-white text-sm rounded-xl font-inria">
+            <button className="w-fit h-fit px-4 py-2 text-white bg-darkpurple font-sans font-medium text-lg rounded-2xl hover:bg-vividpurple font-inria">
               SIGN IN
             </button>
           </form>

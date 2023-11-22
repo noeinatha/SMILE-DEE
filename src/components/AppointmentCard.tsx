@@ -114,7 +114,7 @@ export default function AppointmentCard({
               </div>
               <div className="h-full flex flex-row justify-center items-center gap-5 ml-5">
                 <button
-                  className="w-[45px] h-[45px] rounded-full relative bg-red flex justify-center items-center"
+                  className="w-[45px] h-[45px] rounded-full relative bg-red hover:bg-orange flex justify-center items-center"
                   onClick={() => handleDeleteBooking({ bookingId })}
                 >
                   <Icon
@@ -124,7 +124,7 @@ export default function AppointmentCard({
                   />
                 </button>
                 <button
-                  className="w-[45px] h-[45px] rounded-full relative bg-fadepurple flex justify-center items-center"
+                  className="w-[45px] h-[45px] rounded-full relative bg-fadepurple hover:bg-vividpurple flex justify-center items-center"
                   onClick={(e) => {
                     setShowModal(true);
                     e.stopPropagation();

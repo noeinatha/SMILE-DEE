@@ -12,7 +12,7 @@ export default function DentistCard({
   dentistTel,
   imgSrc,
   dentistid,
-  token
+  token,
 }: {
   dentistName: string;
   dentistExpertist: string;
@@ -67,9 +67,9 @@ export default function DentistCard({
               </div>
             </div>
           </div>
-          <div className="w-full h-[45px] flex flex-row gap-1.5 justify-end">
+          <div className="w-full h-[45px] flex flex-row gap-1.5 justify-end px-2.5">
             <button
-              className="w-[45px] h-full rounded-full relative bg-red flex justify-center items-center"
+              className="w-[45px] h-full rounded-full relative bg-red hover:bg-orange flex justify-center items-center"
               onClick={() => handleDeleteDentist({ dentistid })}
             >
               <Icon
@@ -79,7 +79,7 @@ export default function DentistCard({
               />
             </button>
             <button
-              className="w-[45px] h-full rounded-full relative bg-fadepurple flex justify-center items-center"
+              className="w-[45px] h-full rounded-full relative bg-fadepurple hover:bg-vividpurple flex justify-center items-center"
               onClick={(e) => {
                 setShowModal(true);
                 e.stopPropagation();
@@ -100,8 +100,8 @@ export default function DentistCard({
           hospitalAddress={hospitalAddress}
           dentistTel={dentistTel}
           imgSrc={imgSrc}
-          dentistid= {dentistid}
-          token= {token}
+          dentistid={dentistid}
+          token={token}
         />
       </Fragment>
     </div>

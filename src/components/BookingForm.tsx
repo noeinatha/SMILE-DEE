@@ -122,7 +122,7 @@ export default function BookingForm({
         </div>
       </div>
       <button
-        className="w-fit h-fit p-5 text-white bg-darkpurple font-sans font-medium text-lg rounded-2xl hover:bg-vividpurple font-inria"
+        className="w-fit h-fit px-4 py-2 mt-5 text-white bg-darkpurple font-sans font-medium text-lg rounded-2xl hover:bg-vividpurple font-inria"
         onClick={() => handleAddAppointment()}
       >
         CONFIRM

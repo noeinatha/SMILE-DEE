@@ -18,11 +18,11 @@ export default async function AppointmentCatalog() {
   const token = session.user.token;
   const profile = await getUserProfile(token);
   return (
-    <div>
-      <div className="font-inria text-4xl font-bold text-center text-darkblue py-5">
+    <div className="px-20 pt-5">
+      <div className="w-full text-5xl font-bold text-center text-red py-5 font-inria">
         MY APPOINTMENT
       </div>
-      <div className="overflow-auto flex flex-wrap justify-center gap-10 px-20">
+      <div className="overflow-auto flex flex-wrap justify-center gap-10 px-20 py-5">
         {profile.data.role === "admin"
           ? appointmentJsonReady.data.map((appointmentItem: Object) => (
               <AppointmentCard

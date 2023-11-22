@@ -94,7 +94,7 @@ export default function EditDentistCard({
             <div className="w-full flex justify-center items-center">
               <button
                 type="button"
-                className="p-2.5 mt-2.5 text-white bg-darkpurple font-semibold  text-sm rounded-2xl hover:bg-vividpurple font-inria"
+                className="w-fit h-fit px-4 py-2 text-white bg-darkpurple font-semibold text-sm rounded-2xl hover:bg-vividpurple font-inria"
                 onClick={async () => {
                   if (file) {
                     const res = await edgestore.publicImages.upload({
@@ -117,7 +117,7 @@ export default function EditDentistCard({
             </div>
           </div>
         </div>
-        <div>
+        <div className="flex flex-col justify-between">
           <div className="flex flex-row gap-5 mb-5">
             <div>
               <div className="font-sans font-medium text-md text-darkpurple pb-3 font-inria">
@@ -243,7 +243,7 @@ export default function EditDentistCard({
           </div>
           <div className="w-full h-[45px] flex flex-row justify-end">
             <button
-              className="p-2.5 text-white bg-red font-semibold  text-sm rounded-2xl hover:bg-orage font-inria"
+              className="p-2.5 text-white bg-red font-semibold text-sm rounded-2xl hover:bg-orange font-inria"
               onClick={() => handleEditDentist({ dentistid })}
             >
               UPDATE

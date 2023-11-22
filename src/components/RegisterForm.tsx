@@ -144,7 +144,7 @@ export default function RegisterForm() {
             </div>
             <button
               type="submit"
-              className="px-4 py-1.5 bg-darkpurple text-white text-sm rounded-xl font-inria"
+              className="w-fit h-fit px-4 py-2 text-white bg-darkpurple font-sans font-medium text-lg rounded-2xl hover:bg-vividpurple font-inria"
             >
               SIGN UP
             </button>
@@ -160,7 +160,7 @@ export default function RegisterForm() {
             </div>
           </div>
           <button
-            className="px-4  py-1.5 border-2 border-white text-white text-sm rounded-xl font-inria"
+            className="w-fit h-fit px-4 py-2 text-white bg-darkpurple font-sans font-medium text-lg rounded-2xl border-2 border-white hover:bg-vividpurple font-inria"
             onClick={(e) => {
               e.stopPropagation();
               router.push("/login");
