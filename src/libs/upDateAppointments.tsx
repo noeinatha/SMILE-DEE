@@ -9,7 +9,6 @@ export default async function updateAppointments(bookingId:string , token:string
         bookingDate : bookingDate,
         user: user,
         dentist: dentist,
-
       }),
     });
   

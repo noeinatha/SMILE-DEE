@@ -55,6 +55,7 @@ export default function EditDentistCard({
       );
       console.log(`Dentist with ID ${dentistid} edit successfully.`);
       revalidatePath("/dentists");
+      onClose();
     } catch (error) {
       console.error("Error editing dentist:", error);
     }
