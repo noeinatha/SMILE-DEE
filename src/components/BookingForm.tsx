@@ -7,8 +7,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs, { Dayjs } from "dayjs";
 import { useEffect, useState } from "react";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { getServerSession } from "next-auth";
 
 export default function BookingForm({
   token,
@@ -85,15 +83,21 @@ export default function BookingForm({
             />
           </LocalizationProvider>
         </div>
-        <div>
+        <div className="grid gap-3">
           <div className="font-sans font-medium text-lg text-darkpurple font-inria">
             Dentist:
           </div>
           <Select
-            variant="standard"
+            variant="outlined"
             name="dentist"
             id="dentist"
             className="h-[56px] w-[200px]"
+            sx={{
+              svg: { color: "#ED7B7B" },
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#974EC3",
+              },
+            }}
             onChange={(e) => {
               // console.log(value.target.value);
               const value = dentist?.find((x) => x._id === e.target.value);
