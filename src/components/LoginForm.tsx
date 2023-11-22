@@ -13,6 +13,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { revalidatePath } from "next/cache";
 export const LoginForm = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -92,8 +93,9 @@ export const LoginForm = () => {
                 Welcome back to
               </div>
               <div className="w-full text-4xl font-semibold text-center font-inria">
-                SMILE-DEE
+                  SMILE-DEE
               </div>
+
             </div>
             <div className="w-full flex flex-col gap-5 justify-center items-center">
               <div className="w-1/2 flex flex-row gap-5 justify-center items-center">

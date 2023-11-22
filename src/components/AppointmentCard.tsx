@@ -4,6 +4,8 @@ import { Fragment, useState } from "react";
 import deleteAppointments from "@/libs/deleteAppointments";
 import EditAppointmentCard from "./EditAppointmentCard";
 import dayjs, { Dayjs } from "dayjs";
+import { useEffect } from "react";
+import { set } from "mongoose";
 export default function AppointmentCard({
   bookingDate,
   userName,
@@ -25,7 +27,6 @@ export default function AppointmentCard({
 }) {
   const [showModal, setShowModal] = useState(false);
   const handleDeleteBooking = async ({ bookingId }: { bookingId: string }) => {
-    console.log("Hi");
     try {
       await deleteAppointments(bookingId, token);
       console.log(`Booking with ID ${bookingId} deleted successfully.`);
@@ -33,16 +34,49 @@ export default function AppointmentCard({
       console.error("Error deleting booking:", error);
     }
   };
+
+  // console.log("mydate", dayjs(bookingDate));
+  const date = dayjs(bookingDate).diff(dayjs(), "day");
+  const [dateBefore, setDateBefore] = useState<string>();
+  useEffect(() => {
+    if (date === 0) {
+      setDateBefore("TODAY");
+    } else if (date >= 1) {
+      setDateBefore(`IN ${date} DAYS`);
+    }
+  }, [date]);
+  console.log("date", dateBefore);
   return (
     <div>
       <Fragment>
         <div className="w-[1000px] h-fit px-5 py-5 bg-white rounded-2xl shadow-lg ">
-          <div className="p-2.5 text-xl font-bold text-darkblue font-inria">
-            Appointment Scheduled for
-            <span className="font-normal text-darkblue font-inria">
-              {" "}
-              {userName}
-            </span>
+          <div className="flex flex-row justify-between items-center">
+            <div className="p-2.5 text-xl font-bold text-darkblue font-inria">
+              Appointment Scheduled for
+              <span className="font-normal text-darkblue font-inria">
+                {" "}
+                {userName}
+              </span>
+            </div>
+            {dateBefore === "TODAY" ? (
+              <div className="bg-red h-full rounded-lg gap-x-8 px-5 py-2.5 flex flex-row">
+                <div className="text-l font-semibold text-white font-inria">
+                  {dateBefore}
+                </div>
+              </div>
+            ) : date < 8 ? (
+              <div className="bg-vividpurple h-full rounded-lg gap-x-8 px-5 py-2.5 flex flex-row ">
+                <div className="text-l font-semibold text-white font-inria">
+                  {dateBefore}
+                </div>
+              </div>
+            ) : (
+              <div className="bg-fadegray h-full rounded-lg gap-x-8 px-5 py-2.5 flex flex-row ">
+                <div className="text-l font-semibold text-darkpurple font-inria">
+                  {dateBefore}
+                </div>
+              </div>
+            )}
           </div>
           <div className="px-10 gap-2.5 flex flex-col w-full y-auto">
             <div className="flex flex-row gap-2.5 h-fit">

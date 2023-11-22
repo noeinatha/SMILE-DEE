@@ -61,6 +61,7 @@ export default function EditDentistCard({
         newDentistId
       );
       console.log(`Appointment with ID ${bookingId} edit successfully.`);
+      onClose();
     } catch (error) {
       console.error("Error editing Appointment:", error);
     }

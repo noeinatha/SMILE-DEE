@@ -19,7 +19,7 @@ export default function EditDentistCard({
   dentistTel,
   imgSrc,
   dentistid,
-  token
+  token,
 }: {
   isVisible: boolean;
   onClose: () => void;
@@ -43,13 +43,22 @@ export default function EditDentistCard({
   if (!isVisible) return null;
   const handleEditDentist = async ({ dentistid }: { dentistid: string }) => {
     try {
-      await updateDentist(dentistid, token ,name, expertist, hospital, address, tel, picture);
+      await updateDentist(
+        dentistid,
+        token,
+        name,
+        expertist,
+        hospital,
+        address,
+        tel,
+        picture
+      );
       console.log(`Dentist with ID ${dentistid} edit successfully.`);
       revalidatePath("/dentists");
+      onClose();
     } catch (error) {
       console.error("Error editing dentist:", error);
     }
-
   };
   return (
     <div
@@ -106,8 +115,7 @@ export default function EditDentistCard({
                 Upload
               </button>
             </div>
-            </div>
-
+          </div>
         </div>
         <div>
           <div className="flex flex-row gap-5 mb-5">
@@ -118,9 +126,9 @@ export default function EditDentistCard({
               <div>
                 <TextField
                   label="Name"
-                  name = "name"
+                  name="name"
                   variant="outlined"
-                  value = {name}
+                  value={name}
                   sx={{
                     "& .MuiInputLabel-root": { color: "#504099" },
                     "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
@@ -141,9 +149,9 @@ export default function EditDentistCard({
               <div className="flex flex-row gap-20">
                 <TextField
                   label="Expertist"
-                  name = "expertist"
+                  name="expertist"
                   variant="outlined"
-                  value = {expertist}
+                  value={expertist}
                   sx={{
                     "& .MuiInputLabel-root": { color: "#504099" },
                     "& .MuiInputLabel-root.Mui-focused": { color: "#504099" },
@@ -154,7 +162,6 @@ export default function EditDentistCard({
                     },
                   }}
                   onChange={(e) => setExpertist(e.target.value)}
-                  
                 />
               </div>
             </div>
@@ -167,7 +174,7 @@ export default function EditDentistCard({
               <div>
                 <TextField
                   label="Hospital"
-                  name = "hospital"
+                  name="hospital"
                   variant="outlined"
                   value={hospital}
                   sx={{
@@ -190,7 +197,7 @@ export default function EditDentistCard({
               <div className="flex flex-row gap-20">
                 <TextField
                   label="Address"
-                  name = "address"
+                  name="address"
                   value={address}
                   variant="outlined"
                   defaultValue={hospitalAddress}
@@ -235,7 +242,10 @@ export default function EditDentistCard({
             </div>
           </div>
           <div className="w-full h-[45px] flex flex-row justify-end">
-            <button className="p-2.5 text-white bg-red font-semibold  text-sm rounded-2xl hover:bg-orage font-inria" onClick={() => handleEditDentist({ dentistid })}>
+            <button
+              className="p-2.5 text-white bg-red font-semibold  text-sm rounded-2xl hover:bg-orage font-inria"
+              onClick={() => handleEditDentist({ dentistid })}
+            >
               UPDATE
             </button>
           </div>
