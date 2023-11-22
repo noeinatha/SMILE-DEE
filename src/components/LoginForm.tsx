@@ -13,6 +13,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import Image from "next/image";
 export const LoginForm = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -87,13 +88,18 @@ export const LoginForm = () => {
             onSubmit={onSubmit}
             className="flex flex-col justify-center items-center gap-10"
           >
-            <div className="flex flex-col gap-5 justify-center">
+            <div className="flex flex-col gap-5 justify-center items-center">
               <div className="w-full text-3xl text-darkpurple text-center font-inria">
                 Welcome back to
               </div>
-              <div className="w-full text-4xl font-semibold text-center font-inria">
-                SMILE-DEE
-              </div>
+              <Image
+                src={"/img/logo.png"}
+                className="w-2/5"
+                alt="logo"
+                width={0}
+                height={0}
+                sizes="100vh"
+              />
             </div>
             <div className="w-full flex flex-col gap-5 justify-center items-center">
               <div className="w-1/2 flex flex-row gap-5 justify-center items-center">
